@@ -4,7 +4,7 @@ import '../assets/Underwater.css';
 import { useRef } from 'react';
 import * as THREE from 'three';
 import Navbar from '../components/Navbar';
-
+import { RandomShootingStars } from '../components/RandomShootingStars'
 function ShootingStar() {
   const ref = useRef();
 
@@ -30,59 +30,17 @@ function ShootingStar() {
     </mesh>
   );
 }
-function MoonStarImage() {
-  const texture = useLoader(THREE.TextureLoader, '/moon-star-yellow.png');
-  const ref = useRef();
+// function MoonStarImage() {
+//   const texture = useLoader(THREE.TextureLoader, '/moon-star-yellow.svg');
+//   const ref = useRef();
 
-  return (
-    <mesh ref={ref} position={[4.9, 3.0, 0]}>
-      <planeGeometry args={[0.6, 0.6]} />
-      <meshBasicMaterial map={texture} transparent />
-    </mesh>
-  );
-}
-
-function ShootingStarWithTrail() {
-  const starRef = useRef();
-  const initialPos = new THREE.Vector3(-20, 10, -10);
-  const velocity = new THREE.Vector3(0.25, -0.1, 0.1); // speed & direction
-
-  useFrame(() => {
-    if (starRef.current) {
-      starRef.current.position.add(velocity);
-
-      // Reset when off screen
-      if (
-        starRef.current.position.x > 20 ||
-        starRef.current.position.y < -10
-      ) {
-        starRef.current.position.copy(initialPos);
-      }
-    }
-  });
-
-  return (
-    <>
-      <Trail
-        width={2}
-        length={10}
-        decay={0.9}
-        color={'#FFD700'}
-        attenuation={(t) => t * t}
-        emissiveIntensity={7}
-      >
-        <mesh ref={starRef} position={initialPos}>
-          <sphereGeometry args={[0.1, 16, 16]} />
-          <meshStandardMaterial
-            emissive={'#ffffff'}
-            emissiveIntensity={5}
-            toneMapped={false}
-          />
-        </mesh>
-      </Trail>
-    </>
-  );
-}
+//   return (
+//     <mesh ref={ref} position={[4.9, 3.0, 0]}>
+//       <planeGeometry args={[0.6, 0.6]} />
+//       <meshBasicMaterial map={texture} transparent />
+//     </mesh>
+//   );
+// }
 
 function FloatingBio() {
   const handleClick = (url) => {
@@ -162,9 +120,9 @@ export default function AboutMe() {
     <div className="underwater-container2">
       <h2 className="underwater-title2">About Yasemin</h2>
       <Canvas camera={{ position: [0, 0, 5] }}>
-        <MoonStarImage />
+       {/*} <MoonStarImage />*/}
         <ResumeDownloadButton/>
-        <ShootingStarWithTrail />
+        <RandomShootingStars />
         <ambientLight intensity={0.3} />
         <Stars radius={100} depth={50} count={5000} factor={4} fade />
         <FloatingBio />

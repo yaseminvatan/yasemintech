@@ -59,21 +59,21 @@ function CausticsPlane() {
   );
 }
 
-// TreasureChest component: click to navigate
-function SeaShell() {
-  const {scene} = useGLTF('/models/sea-shell.glb');
-  return (
-    <>
-      <Float floatIntensity={1}>
-        <primitive object={scene} position={[-3, -1.2, 1]} scale={0.01} />
-      </Float>
+// // TreasureChest component: click to navigate
+// function SeaShell() {
+//   const {scene} = useGLTF('/models/sea-shell.glb');
+//   return (
+//     <>
+//       <Float floatIntensity={1}>
+//         <primitive object={scene} position={[-3, -1.2, 1]} scale={0.01} />
+//       </Float>
 
-      <Float floatIntensity={1}>
-        <primitive object={scene} position={[2.5, -1.1, -1]} scale={0.1} />
-      </Float>
-    </>
-  )
-}
+//       <Float floatIntensity={1}>
+//         <primitive object={scene} position={[2.5, -1.1, -1]} scale={0.1} />
+//       </Float>
+//     </>
+//   )
+//}
 
 //text buttons
 function FloatingTextButton({ position, label, path }) {
@@ -154,7 +154,7 @@ export default function Home() {
         <Fish position={[-2, 0.5, 0]} color="orange" speed={0.01} />
         <Fish position={[1, -0.5, 0]} color="pink" speed={0.008} />
         <Fish position={[-3, -1, 0]} color="yellow" speed={0.015} />
-        <SeaShell/>
+        {/*<SeaShell/>*/}
 
         {/*  buttons */}
         <FloatingTextButton position={[-2, 1.5, 0]} label="About Me" path="/about" />
