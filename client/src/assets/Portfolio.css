@@ -1,0 +1,26 @@
+.project-card {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid #ccc;
+  border-radius: 12px;
+  padding: 20px;
+  width: 100%;
+  max-width: 600px;
+  color: white;
+  backdrop-filter: blur(6px);
+  transition: transform 0.3s ease;
+  text-align: center;
+  white-space: normal;        /* ✅ Allows text to wrap naturally */
+  display: inline-block;      /* ✅ Prevents forced line breaks */
+  word-break: break-word;     /* ✅ Avoids overflow issues */
+}
+
+.project-card:hover {
+  transform: scale(1.05);
+  border-color: gold;
+}
+
+.project-card a {
+  color: #00ffff;
+  text-decoration: none;
+  font-weight: bold;
+}
